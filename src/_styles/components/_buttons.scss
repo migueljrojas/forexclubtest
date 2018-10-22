@@ -1,74 +1,10 @@
-a._button,
-button._button,
-._button {
-    background: $link;
-    color: $white;
-    display: inline-block;
-    font-family: $mainFont;
-    font-size: $xs;
-    font-weight: 700;
-    height: $base;
-    line-height: $base;
-    max-width: 300px;
-    padding: 0 40px;
-    text-align: center;
-    transition: all $duration $easingLight;
-    border-radius: $radius;
+.libertex-cta {
+    @include button;
+    pointer-events: all;
 
-    &:hover{
-        background: $linkHover;
-        text-decoration: none;
-        color: $white;
+    &:disabled {
+        filter: grayscale(100%);
+        opacity: .4;
+        pointer-events: none;
     }
-
-    &.-white {
-        background: $white;
-        color: $black;
-
-        &:hover{
-            color: $mainColor;
-            background: $white;
-            padding: 0 40px;
-        }
-    }
-
-    &.-cta{
-        color:$white;
-        padding: 0 25px;
-        height: 70px;
-        letter-spacing: 1px;
-        line-height: 70px;
-        font-family: $mainFont;
-
-        &:hover{
-            background: $mainColor;
-            padding: 0 40px;
-        }
-    }
-
-    &.-large {
-        height: $base*1.5;
-        line-height: $base*1.5;
-        font-size: 24px;
-    }
-
-    &.-small {
-        height: $base*0.75;
-        line-height: $base*0.75;
-    }
-
-    &.-black {
-        color:$white;
-        background: $black;
-
-        &:hover{
-            color: $mainColor;
-            background: $black;
-            padding: 0 60px;
-        }
-    }
-}
-
-button._button{
-    border: none;
 }

@@ -1,0 +1,10 @@
+{
+    "payments":[
+        "webmoney",
+        "visa",
+        "skrill",
+        "rhaekc",
+        "master-card",
+        "qiwi"
+    ]
+}

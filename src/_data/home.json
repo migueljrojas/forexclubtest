@@ -1,3 +1,54 @@
 {
-    
+    "ranking":[
+        {
+            "money":5321,
+            "account":"123 456 000",
+            "country":"rusia"
+        },
+        {
+            "money":3000,
+            "account":"425 238 238",
+            "country":"spain"
+        },
+        {
+            "money":890,
+            "account":"123 543 548",
+            "country":"china"
+        },
+        {
+            "money":777,
+            "account":"090 235 453",
+            "country":"rusia"
+        },
+        {
+            "money":666,
+            "account":"009 281 443",
+            "country":"spain"
+        },
+        {
+            "money":555,
+            "account":"515 654 522",
+            "country":"china"
+        },
+        {
+            "money":444,
+            "account":"765 452 241",
+            "country":"rusia"
+        },
+        {
+            "money":333,
+            "account":"562 183 816",
+            "country":"spain"
+        },
+        {
+            "money":222,
+            "account":"642 452 555",
+            "country":"china"
+        },
+        {
+            "money":111,
+            "account":"212 552 112",
+            "country":"rusia"
+        }
+    ]
 }

@@ -1,4 +1,87 @@
 extends _layouts/base
 
 block content
-    main.home
+    main.libertex
+        section.libertex-hero
+            .libertex-hero__backdrop
+            .container
+                .row
+                    .col-xs-24.col-sm-16.col-sm-offset-4
+                        .libertex-hero__headings
+                            h1.libertex-hero__title.wow.fadeInLeft Стань чемпионом лиги
+                            p.libertex-hero__subtitle.wow.fadeInRight Вместе с Хамесом нашим Родригесом
+                        .libertex-spacer
+                        .libertex-hero__awards.wow.fadeInLeftBig
+                            .libertex-hero__award
+                                img(src="/images/award-1.png")
+                            .libertex-hero__award
+                                img(src="/images/award-2.png")
+                            .libertex-hero__award
+                                img(src="/images/award-3.png")
+                        .libertex-hero__form.wow.fadeInRightBig
+                            form.libertex-form
+                                .libertex-form__group
+                                    input.libertex-form__input(placeholder="Имя", id="name", required)
+                                    span.libertex-form__error
+                                .libertex-form__group
+                                    input.libertex-form__input(placeholder="Фамилия", id="surname", required) 
+                                    span.libertex-form__error
+                                .libertex-form__group
+                                    input.libertex-form__input(placeholder="+382", id="phone", type="tel", required) 
+                                    span.libertex-form__error
+                                .libertex-form__group
+                                    input.libertex-form__input(placeholder="Эл. почта", id="email")
+                                    span.libertex-form__error
+                                .libertex-form__group
+                                    .libertex-spacer--half
+                                    button.libertex-cta(type="submit", disabled) Порвать всех!
+                            .libertex-form__success
+                                .libertex-form__success__close
+                                    span
+                                    span
+                                .libertex-form__success__message
+                                    span Successful registration
+        section.libertex-ranking
+            .container
+                .row
+                    .col-xs-24.col-md-14.col-md-offset-5.text-center
+                        h2.libertex-ranking__title.wow.fadeInUp Турнирная таблица
+                        .libertex-spacer--half
+                        
+                        .libertex-ranking__outer-wrapper
+                            ul.libertex-ranking__table-index
+                                li.libertex-ranking__table-cell.libertex-ranking__table-cell--header
+                                    span #
+                                each item, index in site.data.home.ranking
+                                    li.libertex-ranking__table-cell.wow.fadeInLeft(data-wow-delay="#{(index + 1) * 0.15}s")
+                                        span=index + 1
+                            
+                            .libertex-ranking__inner-wrapper
+                                .libertex-ranking__table
+                                    .libertex-ranking__table-header
+                                        .libertex-ranking__table-row.wow.fadeInLeftBig
+                                            .libertex-ranking__table-cell.libertex-ranking__table-cell--header(data-sort="money")
+                                                span Объем депозита
+                                            .libertex-ranking__table-cell.libertex-ranking__table-cell--header(data-sort="account")
+                                                span Номер счёта
+                                            .libertex-ranking__table-cell.libertex-ranking__table-cell--header(data-sort="country")
+                                                span Страна
+                                    .libertex-ranking__table-body
+                                        each item, index in site.data.home.ranking
+                                            .libertex-ranking__table-row.wow.fadeInLeftBig(data-wow-delay="#{(index + 1) * 0.15}s")
+                                                .libertex-ranking__table-cell
+                                                .libertex-ranking__table-cell
+                                                .libertex-ranking__table-cell
+                        button.libertex-cta(type="submit") Порвать всех!
+        section.libertex-trailer
+            .container
+                .row
+                    .col-xs-24.col-md-14.col-md-offset-5
+                        h2.libertex-trailer__title.wow.fadeInUp А судьи кто?
+                        .libertex-spacer
+                        p.libertex-trailer__text.wow.fadeInUp Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        .libertex-spacer
+                        .embed-responsive.embed-responsive-16by9.wow.fadeInUp
+                            iframe.embed-responsive-item(src="https://www.youtube.com/embed/ioDZlibsxas")
+                            
+                        
