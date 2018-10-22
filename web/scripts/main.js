@@ -57,7 +57,7 @@ var FormValidation = function() {
             }
         });
 
-        return requiredInputsArray.length === filledInputs ? false : true;
+        return requiredInputsArray.length === filledInputs;
     }
 
     formSubmitButton.addEventListener('click', submitForm, true);
