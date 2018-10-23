@@ -57,6 +57,8 @@ var TableGenerator = function() {
     var tableBody = document.querySelector('.libertex-ranking__table-body');
     var tableRows = tableBody.querySelectorAll('.libertex-ranking__table-row');
 
+    populateTableWithData();
+
     function populateTableWithData() {
         var tableSortCriteriaInLocalStorage = isTableSorCriteriaInLocalStorage();
 
@@ -107,7 +109,10 @@ var TableGenerator = function() {
         var tableRows = tableBody.querySelectorAll('.libertex-ranking__table-row');
         var sortedCells = document.querySelectorAll('.libertex-ranking__table-cell--sorted');
         var sortedCellsArray = [].slice.call(sortedCells);
+        var tableHeader = document.querySelector('.libertex-ranking__table-header');
+        var tableHeaderCells = tableHeader.querySelectorAll('.libertex-ranking__table-cell--header');
         var cellIndex = 0;
+
 
         if (sortCriteria === 'account') {
             cellIndex = 1;
@@ -126,6 +131,8 @@ var TableGenerator = function() {
 
             cells[cellIndex].classList.add('libertex-ranking__table-cell--sorted');
         }
+
+        tableHeaderCells[cellIndex].classList.add('libertex-ranking__table-cell--sorted');
     }
 
     function compareValues(key) {
@@ -145,8 +152,6 @@ var TableGenerator = function() {
     function saveTableSortCriteria(sortCriteria) {
         localStorage.setItem('libertex-table-sort-criteria', JSON.stringify(sortCriteria));
     }
-
-    populateTableWithData();
 }
 
 module.exports = TableGenerator;

@@ -4880,6 +4880,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-bottom: 1px;
   border-radius: 5px;
   min-width: auto;
+  cursor: default;
 }
 
 .libertex-ranking__table-index .libertex-ranking__table-cell:not(.libertex-ranking__table-cell--header) span {
@@ -4938,6 +4939,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   text-transform: uppercase;
   padding-top: 0;
   font-style: italic;
+  cursor: pointer;
+}
+
+.libertex-ranking__table-cell--header.libertex-ranking__table-cell--sorted span {
+  position: relative;
+  padding-right: 15px;
+}
+
+.libertex-ranking__table-cell--header.libertex-ranking__table-cell--sorted span:before, .libertex-ranking__table-cell--header.libertex-ranking__table-cell--sorted span:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  width: 5px;
+  right: 0;
+  border-top: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.libertex-ranking__table-cell--header.libertex-ranking__table-cell--sorted span:before {
+  -webkit-transform: translateY(-5px) rotate(180deg);
+          transform: translateY(-5px) rotate(180deg);
+  opacity: .5;
+}
+
+.libertex-ranking__table-cell--header.libertex-ranking__table-cell--sorted span:after {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
 }
 
 .libertex-ranking__table-header .libertex-ranking__table-row {

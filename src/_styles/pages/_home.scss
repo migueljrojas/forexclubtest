@@ -112,6 +112,7 @@
             margin-bottom: 1px;
             border-radius: $radius;
             min-width: auto;
+            cursor: default;
 
             &:not(.libertex-ranking__table-cell--header) {
 
@@ -168,7 +169,39 @@
             text-transform: uppercase;
             padding-top: 0;
             font-style: italic;
+            cursor: pointer;
+
+            &.libertex-ranking__table-cell--sorted {
+
+                span {
+                    position: relative;
+                    padding-right: 15px;
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 5px;
+                        width: 5px;
+                        right: 0;
+                        border-top: 5px solid $white;
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                    }
+
+                    &:before {
+                        transform: translateY(-5px) rotate(180deg);
+                        opacity: .5;
+                    }
+
+                    &:after {
+                        transform: translateY(5px);
+                    }
+                }
+
+            }
         }
+
     }
 
     &__table-header {

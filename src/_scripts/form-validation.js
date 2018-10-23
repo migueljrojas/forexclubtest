@@ -11,36 +11,12 @@ var FormValidation = function() {
 
     form.addEventListener('blur', validateFormSubmission, true);
 
-    form.addEventListener('focus', hideErrorMessages, true);
-
-    function hideErrorMessages() {
-        var errorMessage = document.querySelector('.libertex-form__input--error');
-
-        if (errorMessage) {
-            errorMessage.classList.remove('libertex-form__input--error');
-        }
-    }
-
-    function resetForm() {
-        var formInputsArray = [].slice.call(formInputs);
-
-        formInputsArray.forEach(function(input) {
-            input.value = '';
-        });
-    }
-
     function validateFormSubmission() {
         if ( !isRequiredInputEmpty() ) {
             enableFormSubmitButton();
+        } else {
+            disableFormSubmitButton();
         }
-    }
-
-    function enableFormSubmitButton() {
-        formSubmitButton.disabled = false;
-    }
-
-    function disableFormSubmitButton() {
-        formSubmitButton.disabled = true;
     }
 
     function isRequiredInputEmpty() {
@@ -56,7 +32,15 @@ var FormValidation = function() {
             }
         });
 
-        return requiredInputsArray.length === filledInputs;
+        return requiredInputsArray.length === filledInputs ? false : true;
+    }
+
+    function enableFormSubmitButton() {
+        formSubmitButton.disabled = false;
+    }
+
+    function disableFormSubmitButton() {
+        formSubmitButton.disabled = true;
     }
 
     formSubmitButton.addEventListener('click', submitForm, true);
@@ -74,17 +58,6 @@ var FormValidation = function() {
             catchFormValidationError();
             enableFormSubmitButton();
         }
-    }
-
-    function displaySuccessfulMessage() {
-        setTimeout(function() {
-            form.classList.add('libertex-form--success');
-            resetForm();
-
-            setTimeout(function() {
-                form.classList.remove('libertex-form--success');
-            }, 4000);
-        }, 2000);
     }
 
     function validateInputValues() {
@@ -122,6 +95,17 @@ var FormValidation = function() {
         }
     }
 
+    function displaySuccessfulMessage() {
+        setTimeout(function() {
+            form.classList.add('libertex-form--success');
+            resetForm();
+
+            setTimeout(function() {
+                form.classList.remove('libertex-form--success');
+            }, 4000);
+        }, 2000);
+    }
+
     function catchFormValidationError() {
 
         switch (false) {
@@ -142,10 +126,29 @@ var FormValidation = function() {
 
     function displayErrorMessage(input, message) {
         input.classList.add('libertex-form__input--error');
+        var errorMessageContainer = input.nextSibling;
 
-        //console.log(document.querySelectorAll('.libertex-form__input--error'));
-        input.nextSibling.innerHTML = message;
+        errorMessageContainer.innerHTML = message;
     }
+
+    form.addEventListener('focus', hideErrorMessages, true);
+
+    function hideErrorMessages() {
+        var errorMessage = document.querySelector('.libertex-form__input--error');
+
+        if (errorMessage) {
+            errorMessage.classList.remove('libertex-form__input--error');
+        }
+    }
+
+    function resetForm() {
+        var formInputsArray = [].slice.call(formInputs);
+
+        formInputsArray.forEach(function(input) {
+            input.value = '';
+        });
+    }
+
 }
 
 module.exports = FormValidation;
